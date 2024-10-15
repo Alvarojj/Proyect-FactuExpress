@@ -1,0 +1,175 @@
+/* Estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: white;
+  color: #eeeeee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+p {
+  color: #0a3622; /* Color específico para el párrafo */
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Contenedor principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Estilos del header */
+header {
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+h2 {
+  color: #ebf2ee; /* Color específico para el h2 */
+  font-size: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+  font-weight: 900;
+}
+
+.register-btn {
+  background-color: white;
+  color: #0a3622;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.highlight {
+  color: #22c55e;
+}
+
+/* Estilos del SVG */
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160%;
+  height: auto;
+  z-index: -10; /* Coloca el SVG detrás del contenido */
+  transform: scaleX(1.5); /* Escala en el eje X para ocupar toda la pantalla */
+}
+
+/* Estilos del main */
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+p {
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.cta-primary, .cta-secondary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cta-primary {
+  background-color: #22c55e;
+  color: white;
+}
+
+.cta-secondary {
+  background-color: white;
+  color: #0a3622;
+  border: 2px solid #0a3622;
+}
+
+.info-section {
+  background-color: white;
+  color: #0a3622;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.info-column {
+  text-align: center;
+}
+
+footer {
+  background-color: #052e20;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.75rem;
+  width: 100%;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .header-content {
+    flex-direction: column;
+  }
+}
