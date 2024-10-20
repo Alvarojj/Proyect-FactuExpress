@@ -1,0 +1,34 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>Iniciar sesión</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input id="email" type="email" formControlName="email" required placeholder="Correo electrónico">
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error-message">
+          <div *ngIf="email?.errors?.['required']">El correo electrónico es requerido.</div>
+          <div *ngIf="email?.errors?.['email']">Correo electrónico inválido.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input id="password" type="password" formControlName="password" required placeholder="Contraseña">
+        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error-message">
+          <div *ngIf="password?.errors?.['required']">La contraseña es requerida.</div>
+          <div *ngIf="password?.errors?.['minlength']">Mínimo 6 caracteres.</div>
+        </div>
+      </div>
+
+      <div class="form-group remember-me">
+        <input id="remember-me" type="checkbox">
+        <label for="remember-me">Recordarme</label>
+      </div>
+
+      <button routerLink="/dashboard" type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
+    </form>
+
+    <div class="additional-links">
+      <a href="#">¿Olvidaste tu contraseña?</a>
+      <a routerLink="/register">¿No tienes una cuenta? Regístrate</a>
+    </div>
+  </div>
+</div>
