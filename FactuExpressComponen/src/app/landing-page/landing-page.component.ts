@@ -14,7 +14,7 @@ export class LandingPageComponent {
   navigateToRegister(): void {
     if (this._router) {
       console.log('Navegando a registro...');
-      this._router.navigate(['/register']);
+      this._router.navigate(['/login']);
     } else {
       console.error('Router no está disponible');
     }

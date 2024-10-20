@@ -4,7 +4,8 @@
 @tailwind utilities;
 
 .bg-dark-green {
-  background-color: #014c33;
+  background-color: #114122;
+
 }
 
 .text-dark-green {
@@ -22,7 +23,7 @@
     font-size: 25px;
 }
 a:link {
-  color: rgb(227, 20, 20);
+  color: rgb(240, 226, 226);
 
 }
 

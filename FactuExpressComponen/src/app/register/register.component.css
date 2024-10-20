@@ -7,7 +7,6 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: rgb(12, 74, 12);
   background-size: cover;
   background-position: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,7 +14,7 @@
 }
 
 .auth-card {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #164829;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -23,6 +22,7 @@
   max-width: 400px;
   transition: all 0.3s ease;
   backdrop-filter: blur(5px);
+  margin-bottom: px;
 }
 
 .auth-card:hover {
@@ -31,7 +31,7 @@
 }
 
 h2 {
-  color: #2e7d32;
+  color: #ffffff;
   text-align: center;
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
@@ -40,6 +40,10 @@ h2 {
 
 .form-group {
   margin-bottom: 1rem;
+
+}
+#terminos{
+  color: #ffffff;
 }
 
 input[type="text"],
@@ -52,16 +56,16 @@ input[type="password"] {
   border-radius: 5px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #f5f8f5;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
 input[type="password"]:focus {
-  border-color: #2e7d32;
+  border-color: #021302;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+  box-shadow: 0 0 0 2px rgba(245, 248, 245, 0.2);
 }
 
 .terms {
@@ -79,7 +83,7 @@ button {
   width: 100%;
   padding: 0.75rem;
   background-color: #2e7d32;
-  color: white;
+  color: rgb(168, 228, 182);
   border: none;
   border-radius: 5px;
   font-size: 1rem;
@@ -97,7 +101,7 @@ button:active {
 }
 
 button:disabled {
-  background-color: #a5d6a7;
+  background-color: #8cbb8c;
   cursor: not-allowed;
 }
 
@@ -114,13 +118,13 @@ button:disabled {
 }
 
 .additional-links a {
-  color: #2e7d32;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .additional-links a:hover {
-  color: #1b5e20;
+  color: #fbfff9;
   text-decoration: underline;
 }
 
@@ -132,7 +136,7 @@ button:disabled {
   width: 80px;
   height: 80px;
   margin: 0 auto 1rem;
-  color: #2e7d32;
+  color: #fefefe;
 }
 
 .success-icon svg {
@@ -141,13 +145,13 @@ button:disabled {
 }
 
 .success-message h3 {
-  color: #2e7d32;
+  color: #eef7ee;
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
 .success-message p {
-  color: #4a4a4a;
+  color: #fffcfc;
   margin-bottom: 1rem;
 }
 
@@ -163,4 +167,38 @@ button:disabled {
 
 .login-link:hover {
   background-color: #1b5e20;
+}
+/* Additional styles can be added here if needed */
+/* Additional styles can be added here if needed */
+.logo-container {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+}
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.sm\:mx-auto {
+  margin-bottom: 2rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+@media (min-width: 640px) {
+  .auth-container {
+    padding: 4rem 2rem;
+  }
 }

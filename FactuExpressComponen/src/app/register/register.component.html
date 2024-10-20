@@ -1,7 +1,13 @@
-<div class="auth-container">
+<div class="auth-container" id="container">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <img class="mx-auto h-24 w-24 rounded-full" src="assets/logo.jpg" alt="FactuExpress">
+    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+      FactuExpress
+    </h2>
+  </div>
 
   <div class="auth-card" [class.success]="registrationSuccess">
-    <h2>Regístrate</h2>
+    <h2>Registrarse</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" *ngIf="!registrationSuccess">
       <div class="form-group">
         <input id="companyName" type="text" formControlName="companyName" required placeholder="Nombre de la empresa">
@@ -55,7 +61,7 @@
 
       <div class="form-group terms">
         <input id="terms" type="checkbox" required>
-        <label for="terms">Acepto los <a href="#">términos y condiciones</a></label>
+        <label id="terminos" for="terms">Acepto los <a href="#">términos y condiciones</a></label>
       </div>
 
       <button type="submit" [disabled]="registerForm.invalid">Registrarse</button>

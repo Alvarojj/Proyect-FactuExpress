@@ -1,4 +1,12 @@
-<div class="auth-container">
+<div class="auth-container" id="container">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <img class="mx-auto h-24 w-24 rounded-full" src="assets/logo.jpg" alt="FactuExpress">
+    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900" id="h2">
+
+      FactuExpress
+    </h2>
+  </div>
+
   <div class="auth-card">
     <h2>Iniciar sesión</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -20,7 +28,7 @@
 
       <div class="form-group remember-me">
         <input id="remember-me" type="checkbox">
-        <label for="remember-me">Recordarme</label>
+        <label id="recordarme" for="remember-me">Recordarme</label>
       </div>
 
       <button routerLink="/dashboard" type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
