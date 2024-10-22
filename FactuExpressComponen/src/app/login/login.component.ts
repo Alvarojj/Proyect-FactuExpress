@@ -17,13 +17,13 @@ export class LoginComponent {
     password: ['', [Validators.required, Validators.minLength(6)]]
   });
 
-  constructor(private fb: FormBuilder, private service:ServiceService, private router:Router) { }
+  constructor(private fb: FormBuilder, private service: ServiceService, private router: Router) { }
 
   onSubmit() {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
       this.service.postlogin(this.loginForm.value).subscribe(
-        (respuesta) =>{
+        (respuesta) => {
           console.log("Usuario correcto")
           this.router.navigate(['/dashboard']);
         },

@@ -20,10 +20,10 @@ export class RegisterComponent {
     password: ['', [Validators.required, Validators.minLength(6)]]
   }, { validators: this.passwordMatchValidator });
 
-  
+
   registrationSuccess = false;
 
-  constructor(private fb: FormBuilder, private service:ServiceService) { }
+  constructor(private fb: FormBuilder, private service: ServiceService) { }
 
   passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     const password = control.get('password');

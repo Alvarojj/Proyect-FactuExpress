@@ -3,12 +3,16 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CurrencyPipe } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideClientHydration(),
-    provideHttpClient() // Asegúrate de incluir HttpClient aquí
+    provideHttpClient(),
+    ReactiveFormsModule,
+    CurrencyPipe,
   ]
 };

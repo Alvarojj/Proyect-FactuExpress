@@ -1,0 +1,92 @@
+<div class="product">
+  <div class="product-table-container">
+    <h2>Agregar Producto</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+      <div class="form-group">
+        <label for="code_reference">Código de Referencia</label>
+        <input id="code_reference" type="text" formControlName="code_reference" required>
+        <div *ngIf="code_reference?.invalid && (code_reference?.dirty || code_reference?.touched)"
+          class="error-message">
+          <div *ngIf="code_reference?.errors?.['required']">El código de referencia es requerido.</div>
+          <div *ngIf="code_reference?.errors?.['pattern']">El código de referencia solo puede contener letras y números.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Nombre del Producto</label>
+        <input id="name" type="text" formControlName="name" required>
+        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="error-message">
+          <div *ngIf="name?.errors?.['required']">El nombre del producto es requerido.</div>
+          <div *ngIf="name?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="quantity">Cantidad</label>
+        <input id="quantity" type="number" formControlName="quantity" required>
+        <div *ngIf="quantity?.invalid && (quantity?.dirty || quantity?.touched)" class="error-message">
+          <div *ngIf="quantity?.errors?.['required']">La cantidad es requerida.</div>
+          <div *ngIf="quantity?.errors?.['min']">La cantidad debe ser al menos 1.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="discount">Descuento</label>
+        <input id="discount" type="number" formControlName="discount" required>
+        <div *ngIf="discount?.invalid && (discount?.dirty || discount?.touched)" class="error-message">
+          <div *ngIf="discount?.errors?.['required']">El descuento es requerido.</div>
+          <div *ngIf="discount?.errors?.['min']">El descuento no puede ser negativo.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="discount_rate">Tasa de Descuento (%)</label>
+        <input id="discount_rate" type="number" formControlName="discount_rate" required>
+        <div *ngIf="discount_rate?.invalid && (discount_rate?.dirty || discount_rate?.touched)" class="error-message">
+          <div *ngIf="discount_rate?.errors?.['required']">La tasa de descuento es requerida.</div>
+          <div *ngIf="discount_rate?.errors?.['min']">La tasa de descuento no puede ser negativa.</div>
+          <div *ngIf="discount_rate?.errors?.['max']">La tasa de descuento no puede ser mayor a 100%.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="price">Precio</label>
+        <input id="price" type="number" formControlName="price" required>
+        <div *ngIf="price?.invalid && (price?.dirty || price?.touched)" class="error-message">
+          <div *ngIf="price?.errors?.['required']">El precio es requerido.</div>
+          <div *ngIf="price?.errors?.['min']">El precio no puede ser negativo.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="tax_rate">Tasa de Impuesto (%)</label>
+        <input id="tax_rate" type="text" formControlName="tax_rate" required>
+        <div *ngIf="tax_rate?.invalid && (tax_rate?.dirty || tax_rate?.touched)" class="error-message">
+          <div *ngIf="tax_rate?.errors?.['required']">La tasa de impuesto es requerida.</div>
+          <div *ngIf="tax_rate?.errors?.['pattern']">Formato inválido. Use hasta 2 decimales (ej: 19.00).</div>
+        </div>
+      </div>
+      <button type="submit" [disabled]="productForm.invalid">Agregar Producto</button>
+    </form>
+
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Cantidad</th>
+          <th>Descuento</th>
+          <th>Tasa de Descuento</th>
+          <th>Precio</th>
+          <th>Tasa de Impuesto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of invoice.items">
+          <td>{{ product.code_reference }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.discount | copCurrency }}</td>
+          <td>{{ product.discount_rate }}%</td>
+          <td>{{ product.price | copCurrency }}</td>
+          <td>{{ product.tax_rate }}%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
