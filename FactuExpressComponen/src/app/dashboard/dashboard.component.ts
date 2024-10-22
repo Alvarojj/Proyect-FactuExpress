@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
+import { ProductTableComponent } from '../product-table/product-table.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ProductTableComponent],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
 

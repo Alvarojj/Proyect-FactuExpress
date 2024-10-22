@@ -46,41 +46,15 @@ export class ProductTableComponent {
       reference_code: 'F124324',
       payment_method_code: 2,
       customer_identification: '1002135238',
-      items: [
-        {
-          code_reference: '12345',
-          name: 'producto de prueba',
-          quantity: 1,
-          discount: 8403.36,
-          discount_rate: 20,
-          price: 50000,
-          tax_rate: '19.00'
-        },
-        {
-          code_reference: '123457',
-          name: 'producto de prueba2',
-          quantity: 1,
-          discount: 8403.36,
-          discount_rate: 20,
-          price: 50000,
-          tax_rate: '19.00'
-        },
-        {
-          code_reference: '63452',
-          name: 'producto de prueba3',
-          quantity: 2,
-          discount: 8403.36,
-          discount_rate: 20,
-          price: 80000,
-          tax_rate: '19.00'
-        }
-      ]
+      items: []
     };
   }
 
   onSubmit() {
     if (this.productForm.valid) {
-      this.invoice.items.push(this.productForm.value);
+      const newProduct = this.productForm.value;
+      this.invoice.items.push(newProduct);
+      console.log(JSON.stringify(this.invoice, null, 2));
       this.productForm.reset({
         quantity: 1,
         discount: 0,
