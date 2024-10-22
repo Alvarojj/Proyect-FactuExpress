@@ -11,10 +11,10 @@
     <h2>Iniciar sesión</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <input id="email" type="email" formControlName="email" required placeholder="Correo electrónico">
-        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error-message">
-          <div *ngIf="email?.errors?.['required']">El correo electrónico es requerido.</div>
-          <div *ngIf="email?.errors?.['email']">Correo electrónico inválido.</div>
+        <input id="user" type="text" formControlName="user" required placeholder="usuario">
+        <div *ngIf="user?.invalid && (user?.dirty || user?.touched)" class="error-message">
+          <div *ngIf="user?.errors?.['required']">El usuario es requerido.</div>
+          <div *ngIf="user?.errors?.['usuario']">Usuario inválido.</div>
         </div>
       </div>
 
@@ -31,7 +31,7 @@
         <label id="recordarme" for="remember-me">Recordarme</label>
       </div>
 
-      <button routerLink="/dashboard" type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
+      <button type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
     </form>
 
     <div class="additional-links">

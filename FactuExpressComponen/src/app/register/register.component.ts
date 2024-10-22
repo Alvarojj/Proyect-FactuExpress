@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-register',
@@ -12,17 +13,17 @@ import { CommonModule } from '@angular/common';
 })
 export class RegisterComponent {
   registerForm = this.fb.group({
-    companyName: ['', [Validators.required, Validators.minLength(2)]],
+    name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
     phone: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
-    username: ['', [Validators.required, Validators.minLength(4)]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
-    confirmPassword: ['', [Validators.required]]
+    userName: ['', [Validators.required, Validators.minLength(4)]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
   }, { validators: this.passwordMatchValidator });
 
+  
   registrationSuccess = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private service:ServiceService) { }
 
   passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     const password = control.get('password');
@@ -39,19 +40,26 @@ export class RegisterComponent {
   onSubmit() {
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);
+
       // Simulate API call
-      setTimeout(() => {
-        this.registrationSuccess = true;
-      }, 1500);
+      this.service.postRegister(this.registerForm.value).subscribe(
+        (respuesta) => {
+          console.log("Datos enviados de manera correcta");
+          this.registrationSuccess = true;
+        },
+        (error) => {
+          console.log("Error al enviar los datos" + error)
+        }
+      );
     } else {
       this.registerForm.markAllAsTouched();
     }
   }
 
-  get companyName() { return this.registerForm.get('companyName'); }
+  get name() { return this.registerForm.get('name'); }
   get email() { return this.registerForm.get('email'); }
   get phone() { return this.registerForm.get('phone'); }
-  get username() { return this.registerForm.get('username'); }
+  get userName() { return this.registerForm.get('userName'); }
   get password() { return this.registerForm.get('password'); }
   get confirmPassword() { return this.registerForm.get('confirmPassword'); }
 }

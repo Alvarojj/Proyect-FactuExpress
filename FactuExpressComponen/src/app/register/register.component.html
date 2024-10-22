@@ -10,10 +10,10 @@
     <h2>Registrarse</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" *ngIf="!registrationSuccess">
       <div class="form-group">
-        <input id="companyName" type="text" formControlName="companyName" required placeholder="Nombre de la empresa">
-        <div *ngIf="companyName?.invalid && (companyName?.dirty || companyName?.touched)" class="error-message">
-          <div *ngIf="companyName?.errors?.['required']">El nombre de la empresa es requerido.</div>
-          <div *ngIf="companyName?.errors?.['minlength']">Mínimo 2 caracteres.</div>
+        <input id="name" type="text" formControlName="name" required placeholder="Nombre de la empresa">
+        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="error-message">
+          <div *ngIf="name?.errors?.['required']">El nombre de la empresa es requerido.</div>
+          <div *ngIf="name?.errors?.['minlength']">Mínimo 2 caracteres.</div>
         </div>
       </div>
 
@@ -34,10 +34,10 @@
       </div>
 
       <div class="form-group">
-        <input id="username" type="text" formControlName="username" required placeholder="Nombre de usuario">
-        <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="error-message">
-          <div *ngIf="username?.errors?.['required']">El nombre de usuario es requerido.</div>
-          <div *ngIf="username?.errors?.['minlength']">Mínimo 4 caracteres.</div>
+        <input id="userName" type="text" formControlName="userName" required placeholder="Nombre de usuario">
+        <div *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)" class="error-message">
+          <div *ngIf="userName?.errors?.['required']">El nombre de usuario es requerido.</div>
+          <div *ngIf="userName?.errors?.['minlength']">Mínimo 4 caracteres.</div>
         </div>
       </div>
 
