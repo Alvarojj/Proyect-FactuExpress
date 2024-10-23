@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CopCurrencyPipe } from '../cop-currency.pipe';
+import { ServiceService } from '../service.service';
 
 interface Product {
   code_reference: string;
@@ -28,10 +29,13 @@ interface Invoice {
   styleUrls: ['./product-table.component.css']
 })
 export class ProductTableComponent {
+
+
   productForm: FormGroup;
   invoice: Invoice;
+  sendingInvoice = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private serviceService: ServiceService) {
     this.productForm = this.fb.group({
       code_reference: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]],
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -63,6 +67,26 @@ export class ProductTableComponent {
         tax_rate: '19.00'
       });
     }
+  }
+
+  enviarInvoice() {
+    this.sendingInvoice = true;
+    this.serviceService.enviardInvoice(this.invoice).subscribe(
+      (response) => {
+        console.log('Invoice sent successfully', response);
+        this.sendingInvoice = false;
+
+        alert('Factura enviada exitosamente');
+
+        this.invoice.items = [];
+      },
+      (error) => {
+        console.error('Error sending invoice', error);
+        this.sendingInvoice = false;
+
+        alert('Error al enviar la factura. Por favor, intente nuevamente.');
+      }
+    );
   }
 
   get code_reference() { return this.productForm.get('code_reference'); }
